@@ -1,177 +1,176 @@
 @import "tailwindcss";
 
+/* =============================================
+   VAULT-76 WIKI — OFFICIAL FO76 BRAND COLOURS
+   Sourced from official Fallout 76 promo art
+   Blue:    #1B4F8A (royal blue — bunting/branding)
+   Yellow:  #F5C518 (bright brand yellow)
+   Gold:    #E8A800 (logo border amber)
+   BG:      #111111 (near-black poster bg)
+   ============================================= */
+
 :root {
-  --pip-blue: #1a3a5c;
-  --pip-blue-light: #2a5a8c;
-  --pip-blue-dark: #0d1f33;
-  --pip-yellow: #f0c040;
-  --pip-yellow-dim: #c09820;
-  --pip-yellow-glow: #f0c04033;
-  --pip-white: #e8e0c8;
-  --pip-gray: #8a8070;
-  --pip-border: #2a4a6a;
-  --pip-green: #4a9a60;
-  --pip-red: #c04040;
-  --bg-main: #070e18;
-  --bg-card: #0d1a28;
-  --bg-card-hover: #122233;
+  --blue:         #3A6EA8;
+  --blue-light:   #4E82BC;
+  --blue-dark:    #1e3d5e;
+  --blue-glow:    rgba(58, 110, 168, 0.35);
+
+  --yellow:       #C9A227;
+  --yellow-dim:   #A8841F;
+  --yellow-dark:  #806018;
+  --yellow-glow:  rgba(201, 162, 39, 0.18);
+  --yellow-glow-lg: rgba(201, 162, 39, 0.30);
+
+  --bg-main:      #111111;
+  --bg-card:      #181818;
+  --bg-card-hover:#1e1e1e;
+  --bg-blue-tint: #121825;
+
+  --text-primary: #EEE8D5;
+  --text-muted:   #7a7268;
+  --text-dim:     #3a3830;
+
+  --border:       #252525;
+  --border-blue:  #3A6EA8;
+
+  --green:        #4a9a5a;
+  --red:          #b04040;
 }
 
 * { box-sizing: border-box; }
 
 body {
   background-color: var(--bg-main);
-  color: var(--pip-white);
+  color: var(--text-primary);
   font-family: 'Share Tech Mono', 'Courier New', monospace;
   min-height: 100vh;
 }
 
-/* Scanline overlay effect */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.03) 2px,
-    rgba(0, 0, 0, 0.03) 4px
+    0deg, transparent, transparent 3px,
+    rgba(0, 0, 0, 0.03) 3px, rgba(0, 0, 0, 0.03) 4px
   );
   pointer-events: none;
   z-index: 9999;
 }
 
-.pip-border {
-  border: 1px solid var(--pip-border);
-  box-shadow: 0 0 8px rgba(26, 58, 92, 0.4), inset 0 0 8px rgba(0, 0, 0, 0.3);
-}
-
 .pip-card {
   background: var(--bg-card);
-  border: 1px solid var(--pip-border);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .pip-card:hover {
-  border-color: var(--pip-yellow-dim);
-  box-shadow: 0 0 12px var(--pip-yellow-glow);
+  border-color: var(--blue-light);
+  background: var(--bg-card-hover);
+  box-shadow: 0 0 16px var(--blue-glow);
 }
 
 .pip-badge-ai {
-  background: rgba(26, 58, 92, 0.6);
-  border: 1px solid var(--pip-blue-light);
-  color: #7ab8e8;
-  font-size: 0.65rem;
-  padding: 1px 6px;
-  border-radius: 2px;
-  letter-spacing: 0.08em;
+  background: rgba(58, 110, 168, 0.2);
+  border: 1px solid var(--blue);
+  color: #7ab0e8;
+  font-size: 0.65rem; padding: 1px 6px;
+  border-radius: 2px; letter-spacing: 0.08em;
 }
 
 .pip-badge-verified {
-  background: rgba(74, 154, 96, 0.2);
-  border: 1px solid var(--pip-green);
-  color: var(--pip-green);
-  font-size: 0.65rem;
-  padding: 1px 6px;
-  border-radius: 2px;
-  letter-spacing: 0.08em;
+  background: rgba(74, 154, 90, 0.15);
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-size: 0.65rem; padding: 1px 6px;
+  border-radius: 2px; letter-spacing: 0.08em;
 }
 
 .pip-badge-flagged {
-  background: rgba(192, 64, 64, 0.2);
-  border: 1px solid var(--pip-red);
-  color: var(--pip-red);
-  font-size: 0.65rem;
-  padding: 1px 6px;
-  border-radius: 2px;
-  letter-spacing: 0.08em;
+  background: rgba(176, 64, 64, 0.15);
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 0.65rem; padding: 1px 6px;
+  border-radius: 2px; letter-spacing: 0.08em;
 }
 
 .pip-btn {
   background: transparent;
-  border: 1px solid var(--pip-yellow-dim);
-  color: var(--pip-yellow);
+  border: 1px solid var(--yellow-dim);
+  color: var(--yellow);
   padding: 6px 16px;
-  font-family: inherit;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.15s;
+  font-family: inherit; font-size: 0.8rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.15s;
 }
 
 .pip-btn:hover {
-  background: var(--pip-yellow-glow);
-  border-color: var(--pip-yellow);
-  box-shadow: 0 0 8px var(--pip-yellow-glow);
+  background: var(--yellow-glow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 10px var(--yellow-glow-lg);
 }
 
 .pip-btn-primary {
-  background: var(--pip-yellow);
-  color: var(--pip-blue-dark);
-  border-color: var(--pip-yellow);
+  background: var(--yellow);
+  color: #111111;
+  border-color: var(--yellow);
   font-weight: bold;
 }
 
 .pip-btn-primary:hover {
-  background: #ffd060;
-  box-shadow: 0 0 12px rgba(240, 192, 64, 0.4);
+  background: #DDB830;
+  box-shadow: 0 0 14px var(--yellow-glow-lg);
+  color: #111111;
 }
 
 .pip-input {
-  background: rgba(13, 26, 40, 0.8);
-  border: 1px solid var(--pip-border);
-  color: var(--pip-white);
+  background: #0e0e0e;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
   padding: 8px 12px;
-  font-family: inherit;
-  font-size: 0.85rem;
+  font-family: inherit; font-size: 0.85rem;
   outline: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
   width: 100%;
 }
 
 .pip-input:focus {
-  border-color: var(--pip-yellow-dim);
-  box-shadow: 0 0 6px var(--pip-yellow-glow);
+  border-color: var(--blue);
+  box-shadow: 0 0 8px var(--blue-glow);
 }
 
 .category-tag {
-  background: rgba(26, 58, 92, 0.4);
-  border: 1px solid var(--pip-blue-light);
-  color: #7ab8e8;
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: 2px;
-  letter-spacing: 0.06em;
+  background: rgba(58, 110, 168, 0.2);
+  border: 1px solid var(--blue);
+  color: #7ab0e8;
+  font-size: 0.7rem; padding: 2px 8px;
+  border-radius: 2px; letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.glow-text {
-  color: var(--pip-yellow);
-  text-shadow: 0 0 10px rgba(240, 192, 64, 0.5);
-}
-
-/* Article content styles */
 .article-content h1, .article-content h2, .article-content h3 {
-  color: var(--pip-yellow);
-  border-bottom: 1px solid var(--pip-border);
-  padding-bottom: 0.4em;
-  margin-top: 1.5em;
+  color: var(--yellow);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4em; margin-top: 1.5em;
 }
 
-.article-content p { line-height: 1.7; color: var(--pip-white); margin-bottom: 1em; }
+.article-content p { line-height: 1.7; color: var(--text-primary); margin-bottom: 1em; }
 .article-content ul, .article-content ol { padding-left: 1.5em; margin-bottom: 1em; }
 .article-content li { margin-bottom: 0.3em; }
 .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 1em; }
-.article-content th { background: var(--pip-blue-dark); color: var(--pip-yellow); padding: 8px 12px; border: 1px solid var(--pip-border); text-align: left; }
-.article-content td { padding: 8px 12px; border: 1px solid var(--pip-border); }
-.article-content tr:nth-child(even) td { background: rgba(26, 58, 92, 0.15); }
-.article-content code { background: var(--pip-blue-dark); color: #7ab8e8; padding: 1px 5px; font-size: 0.85em; }
+.article-content th { background: var(--blue-dark); color: var(--yellow); padding: 8px 12px; border: 1px solid var(--border-blue); text-align: left; }
+.article-content td { padding: 8px 12px; border: 1px solid var(--border); }
+.article-content tr:nth-child(even) td { background: rgba(58, 110, 168, 0.08); }
+.article-content code { background: var(--blue-dark); color: #7ab0e8; padding: 1px 5px; font-size: 0.85em; }
 
-.scrollbar-pip::-webkit-scrollbar { width: 6px; }
+.scrollbar-pip::-webkit-scrollbar { width: 5px; }
 .scrollbar-pip::-webkit-scrollbar-track { background: var(--bg-main); }
-.scrollbar-pip::-webkit-scrollbar-thumb { background: var(--pip-blue-light); }
+.scrollbar-pip::-webkit-scrollbar-thumb { background: var(--blue); }
 
-@keyframes pip-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes pip-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .pip-pulse { animation: pip-pulse 2s ease-in-out infinite; }
+
+.glow-text {
+  color: var(--yellow);
+  text-shadow: 0 0 14px var(--yellow-glow-lg);
+}
